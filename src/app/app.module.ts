@@ -6,6 +6,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { MyListingsComponent } from './my-listings/my-listings.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ProfileComponent } from './profile/profile.component';
     MainPageComponent,
     MyListingsComponent,
     MessagesComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule

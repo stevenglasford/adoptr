@@ -5,5 +5,19 @@
 <p>{{user.username}}</p>
 <p>{{user.location}}</p>
 <br>
-<button id="addDog">Add a New Dog</button>
-<p>User's listed dogs</p>
+<button id="addDog" (click)="iWantToAdd()">Add a New Dog</button>
+
+<div *ngIf="this.isSelected">
+    <p>Please enter the dog's name</p>
+    <input class="form-control" type="text" [(ngModel)]="dogName" required>
+
+    <p>Please enter a photo url of the dog</p>
+    <input type="text" [(ngModel)]="dogPhoto" required>
+
+    <p>Please enter the dog's location</p>
+    <input type="text" [(ngModel)]="dogLocation" required>
+    <br>
+    <button (click)="addDog()">Add your Dog.</button>
+</div>
+
+<h3>{{user.username}} listed dogs</h3>

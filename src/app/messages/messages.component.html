@@ -1,1 +1,4 @@
-<p>messages works!</p>
+<app-header></app-header>
+<div class="container">
+    <app-message-card *ngFor="let message of messagePreviews" [message]="message"></app-message-card>
+</div>

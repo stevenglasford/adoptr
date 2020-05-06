@@ -11,7 +11,7 @@ export class MessageCardComponent implements OnInit {
 
   constructor(private db: DatabaseService) { }
 
-  var userMessages: Message[];
+  userMessages: Message[];
 
   ngOnInit(): void {
   }

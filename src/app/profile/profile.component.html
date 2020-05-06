@@ -1,1 +1,32 @@
-<p>profile works!</p>
+<h2>{{user.username}}'s Profile</h2>
+
+<br>
+<img src="{{user.profilePhotoUrl}}" 
+    alt="{{user.username}}"
+    style="width:20%">
+<p>{{user.location}}</p>
+<br>
+<button id="addDog" (click)="iWantToAdd()">Add a New Dog</button>
+
+<div *ngIf="this.isSelected">
+    <p>Please enter the dog's name</p>
+    <input class="form-control" type="text" [(ngModel)]="dogName" required>
+
+    <p>Please enter a photo url of the dog</p>
+    <input type="text" [(ngModel)]="dogPhoto" required>
+
+    <p>Please enter the dog's location</p>
+    <input type="text" [(ngModel)]="dogLocation" required>
+    <br>
+    <button (click)="addDog()">Add your Dog.</button>
+</div>
+
+<h3>{{user.username}} listed dogs</h3>
+
+<div *ngFor="let mine of myDogs">
+    <img src="{{mine.photoUrl}}"
+        alt="{{mine.name}}"
+        style="width:20%">
+    <h3>Name:</h3> <p>{{mine.name}}</p>
+    <h3>Location:</h3> <p>{{mine.location}}</p>
+</div>

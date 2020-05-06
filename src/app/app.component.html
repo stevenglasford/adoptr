@@ -1,7 +1,21 @@
-<div style="text-align: center;">
+<!--Log in the user-->
+<div *ngIf="selected===-1" style="text-align: center;">
+    <h1 id="titleChevron">Welcome to Adoptr</h1>
+    <h3 *ngIf="isUserReal===0">This User does not exist</h3>
+    <input class="form-control" type="text" [(ngModel)]="USERNAME" placeholder="Username" required>
+    <br>
+    <input class="form-control" type="password" [(ngModel)]="PASSWORD" placeholder="password" required>
+    <br>
+    <button (click)="login()">Log me in!</button>
+</div>
+
+<!--Show if the user hs logged in-->
+<div *ngIf="selected!==-1" style="text-align: center;">
+    <h1 id="titleChevron">Adoptr</h1>
     <button (click)="home()">Home</button>
     <button (click)="messages()">Messages</button>
     <button (click)="profile()">Profile</button>
+    <button (click)="logOut()">Log Out</button>
     
     <div *ngIf="selected===0">
         <app-main-page></app-main-page>

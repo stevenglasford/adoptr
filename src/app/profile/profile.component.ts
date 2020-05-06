@@ -39,6 +39,7 @@ export class ProfileComponent implements OnInit {
     this.dogPhoto='';
     this.dogLocation='';
     this.isSelected=false;
+    this.ngOnInit();
 
     
   }

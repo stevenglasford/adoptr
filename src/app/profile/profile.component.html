@@ -1,6 +1,6 @@
 <br>
 <img src="{{user.profilePhotoUrl}}" 
-    alt="User's Photo"
+    alt="{{user.username}}"
     style="width:20%">
 <p>{{user.username}}</p>
 <p>{{user.location}}</p>
@@ -21,3 +21,11 @@
 </div>
 
 <h3>{{user.username}} listed dogs</h3>
+
+<div *ngFor="let mine of myDogs">
+    <img src="{{mine.photoUrl}}"
+        alt="{{mine.name}}"
+        style="width:20%">
+    <p>{{mine.name}}</p>
+    <p>{{mine.location}}</p>
+</div>

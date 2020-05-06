@@ -9,9 +9,10 @@ import { DatabaseService } from './database.service';
 export class AppComponent {
   title = 'Adoptr';
   //avoiding routing since they are finicky to setup
+  //-1=login page
   //0=home page
-  //1=messages
-  //2=profile
+  //1=messages page
+  //2=profile page
   constructor(private db:DatabaseService) { }
 
   ngOnInit() {

@@ -18,11 +18,13 @@ export class ProfileComponent implements OnInit {
   dogLocation: string = '';
   //debugging set to false in production
   isSelected: boolean = false;
+  myDogs: Dog[] = [];
 
 
   constructor(private db:DatabaseService) { }
   ngOnInit(): void {
     this.user = this.db.getUserById(this.db.currentUser);
+    this.myDogs = this.db.getMyDogs(this.db.currentUser);
   }
   // username: string = this.user.username;
   addDog():void {

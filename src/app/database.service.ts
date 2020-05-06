@@ -17,8 +17,8 @@ export class DatabaseService {
   ]
 
   dogs: Dog[] = [
-    {id: 1, name: 'Bambie', userOwnerId: 2, photoUrl: '', location: 'Fargo'},
-    {id: 2, name: 'Pheobe', userOwnerId: 2, photoUrl: '', location: 'Spearfish'},
+    {id: 1, name: 'Bambie', userOwnerId: 2, photoUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', location: 'Fargo'},
+    {id: 2, name: 'Pheobe', userOwnerId: 2, photoUrl: 'https://post.healthline.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg', location: 'Spearfish'},
   ]
 
   views: View[] = [
@@ -59,6 +59,16 @@ export class DatabaseService {
       }
     }
     return retDogs;
+  }
+
+  getMyDogs(userId: number): Dog[] {
+    let myDogs: Dog[] = [];
+    for(var d of this.dogs){
+      if(d.userOwnerId === userId){
+        myDogs.push(d);
+      }
+    }
+    return myDogs;
   }
 
   private dogViewed(userId: number, dogId: number): boolean {

@@ -116,6 +116,18 @@ export class DatabaseService {
     return null;
   }
 
+  addNewDog(dogName: string, ownerID: number, newProfilePhotoUrl: string, newLocation: string): boolean {
+    let maximumId: number = 0;
+    for (var d of this.dogs) {
+      maximumId = Math.max(d.id, maximumId);
+    }
+    maximumId++;
+    this.dogs.push(
+      {id: maximumId, name: dogName, userOwnerId: ownerID, 
+        photoUrl: newProfilePhotoUrl, location: newLocation});
+    
+    return true; // user added
+  }
   //getAllMessagesByUserId(userId: number): Message[] {
   //  let retMessages: 
   //}

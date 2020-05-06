@@ -17,8 +17,8 @@ export class DatabaseService {
   ]
 
   dogs: Dog[] = [
-    {id: 1, name: 'Bambie', userOwnerId: 2, photoUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', location: 'Fargo'},
-    {id: 2, name: 'Pheobe', userOwnerId: 2, photoUrl: 'https://post.healthline.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg', location: 'Spearfish'},
+    {id: 1, name: 'Bambie', userOwnerId: 2, photoUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', location: 'Fargo', description: "Grass Fed ball-loving family driven girl"},
+    {id: 2, name: 'Pheobe', userOwnerId: 2, photoUrl: 'https://post.healthline.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg', location: 'Spearfish', description: "She is Steven's dog. He knows more about her than you do"},
   ]
 
   views: View[] = [
@@ -172,7 +172,7 @@ export class DatabaseService {
     this.dogs = this.dogs.filter(dog => dog.id != dogId);
     this.views = this.views.filter(view => view.dogId != dogId);
   }
-  addNewDog(dogName: string, ownerID: number, newProfilePhotoUrl: string, newLocation: string): boolean {
+  addNewDog(dogName: string, ownerID: number, newProfilePhotoUrl: string, newLocation: string, doggyDesc: string): boolean {
     let maximumId: number = 0;
     for (var d of this.dogs) {
       maximumId = Math.max(d.id, maximumId);
@@ -180,7 +180,7 @@ export class DatabaseService {
     maximumId++;
     this.dogs.push(
       {id: maximumId, name: dogName, userOwnerId: ownerID, 
-        photoUrl: newProfilePhotoUrl, location: newLocation});
+        photoUrl: newProfilePhotoUrl, location: newLocation, description: doggyDesc});
     
     return true; // user added
   }

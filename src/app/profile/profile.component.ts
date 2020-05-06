@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   dogOwner: string = this.user.username;
   dogPhoto: string = '';
   dogLocation: string = '';
+  dogDescription: string = '';
   //debugging set to false in production
   isSelected: boolean = false;
   myDogs: Dog[] = [];
@@ -27,7 +28,7 @@ export class ProfileComponent implements OnInit {
   }
   // username: string = this.user.username;
   addDog():void {
-    this.db.addNewDog(this.dogName,this.user.id,this.dogPhoto,this.dogLocation);
+    this.db.addNewDog(this.dogName,this.user.id,this.dogPhoto,this.dogLocation,this.dogDescription);
     // console.log(this.dogName);
     // console.log(this.user.id);
     // console.log(this.dogPhoto);
@@ -37,6 +38,7 @@ export class ProfileComponent implements OnInit {
     this.dogOwner='';
     this.dogPhoto='';
     this.dogLocation='';
+    this.dogDescription='';
     this.isSelected=false;
     this.ngOnInit();
 

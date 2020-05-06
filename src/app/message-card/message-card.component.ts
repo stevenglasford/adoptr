@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { Message } from '../message';
 
@@ -11,7 +11,7 @@ export class MessageCardComponent implements OnInit {
 
   constructor(private db: DatabaseService) { }
 
-  userMessages: Message[];
+  @Input() message: Message;
 
   ngOnInit(): void {
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Message } from '../message';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-messages',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private db: DatabaseService) { }
+
+  //messagesArray: Message[][];
+  messagePreviews: Message[];
 
   ngOnInit(): void {
+    //this.messagesArray = this.db.getMessagesByUserIdGrouped(this.db.currentUser);
+    this.messagePreviews = this.db.getMessagePreviews(this.db.currentUser);
   }
 
 }

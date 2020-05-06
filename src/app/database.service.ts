@@ -136,6 +136,28 @@ export class DatabaseService {
     return retMessages;
   }
 
+  getMessagesByUserIdGrouped(userId: number): Message[][] {
+    let retMessagesArray: Message[][] = new Array(50);
+    for (let m of this.messages) {
+      if (m.userIdFrom == userId || m.userIdTo == userId) {
+        if (m.userIdFrom != userId) {
+          retMessagesArray[m.userIdFrom].push(m);
+        } else { // m.userIdTo != userId
+          retMessagesArray[m.userIdTo].push(m);
+        }
+      }
+    }
+    // remove the nulls
+    retMessagesArray = retMessagesArray.filter(msgs => msgs != null);
+    return retMessagesArray;
+  }
+
+  getMessagePreviews(userId: number): Message[] {
+    let allMessages: Message[][] = this.getMessagesByUserIdGrouped(userId);
+    let previews: Message[] = allMessages.map(msgs => msgs.pop());
+    return previews;
+  }
+
   addNewMessage(userIdFrom: number, userIdTo: number, messageBody: string, attachmentUrl: string, datetime: Date) {
     this.messages.push(
       {userIdFrom: userIdFrom, userIdTo: userIdTo, messageBody: messageBody, 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatabaseService } from './database.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,11 @@ export class AppComponent {
   //0=home page
   //1=messages
   //2=profile
+  constructor(private db:DatabaseService) { }
+
+  ngOnInit() {
+    this.db.currentUser = 2;
+  }
 
   selected: number = 0;
   home(): void{

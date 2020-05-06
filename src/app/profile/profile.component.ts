@@ -11,7 +11,6 @@ import { Dog } from '../dog';
 
 export class ProfileComponent implements OnInit {
   user: User = {id: 3, username: 'waka', password: 'password', profilePhotoUrl: '', location: ''};
-  usersDogs: Dog
   dogName: string = '';
   dogOwner: string = this.user.username;
   dogPhoto: string = '';

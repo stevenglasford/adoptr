@@ -17,6 +17,7 @@ export class AppComponent {
   PASSWORD: string = '';
   isUserReal: number = -1;
   selected: number = -1;
+  userIdentification = -1;
 
   constructor(private db:DatabaseService) { }
 
@@ -25,6 +26,7 @@ export class AppComponent {
     if(this.db.verifyUser(this.USERNAME,this.PASSWORD)){
       this.selected=0;
       this.isUserReal=-1;
+      this.db.currentUser=this.db.getUserId(this.USERNAME);
     }
     else{
       this.isUserReal=0;
@@ -38,7 +40,6 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.db.currentUser = 2;
   }
 
   home(): void{

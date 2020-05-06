@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { Dog } from './dog';
 import { Message } from './message';
 import { User } from './user';
@@ -137,6 +137,10 @@ export class DatabaseService {
         photoUrl: newProfilePhotoUrl, location: newLocation});
     
     return true; // user added
+  }
+
+  addView(uId: number, dId: number, loved: boolean){
+    this.views.push({userId : uId, dogId : dId, liked : loved})
   }
   //getAllMessagesByUserId(userId: number): Message[] {
   //  let retMessages: 

@@ -54,7 +54,7 @@ export class DatabaseService {
   getUnviewedDogs(userId: number): Dog[] {
     let retDogs: Dog[] = [];
     for (var d of this.dogs) {
-      if (!this.dogViewed(userId, d.id)){
+      if (!this.dogViewed(userId, d.id) && (d.userOwnerId != userId)){
         retDogs.push(d);
       }
     }

@@ -85,4 +85,28 @@ export class DatabaseService {
     
     return true; // user added
   }
+
+  getLikedDogsByUserId(userId: number): Dog[] {
+    let retDogs: Dog[] = [];
+    for (var v of this.views) {
+      if (v.userId == userId) {
+        retDogs.push(this.getDogById(v.dogId));
+      }
+    }
+    return retDogs;
+  }
+
+  getDogById(dogId: number): Dog {
+    for (var d of this.dogs) {
+      if (d.id == dogId) {
+        return d;
+      }
+    }
+    // else
+    return null;
+  }
+
+  //getAllMessagesByUserId(userId: number): Message[] {
+  //  let retMessages: 
+  //}
 }

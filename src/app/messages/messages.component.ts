@@ -12,7 +12,7 @@ export class MessagesComponent implements OnInit {
   constructor(private db: DatabaseService) { }
 
   //messagesArray: Message[][];
-  messagePreviews: Message[];
+  messagePreviews: Message[] = null;
 
   ngOnInit(): void {
     //this.messagesArray = this.db.getMessagesByUserIdGrouped(this.db.currentUser);

@@ -26,7 +26,8 @@ export class DatabaseService {
   ]
 
   messages: Message[] = [
-    {userIdTo: 2, userIdFrom: 1, messageBody: 'Id like to adopt', attachmentUrl: '', datetime: null}
+    {userIdTo: 2, userIdFrom: 1, messageBody: 'Id like to adopt', attachmentUrl: '', datetime: new Date(2000,0,0,0,0,0,0)},
+    {userIdTo: 1, userIdFrom: 2, messageBody: 'Yeah, you can adopt', attachmentUrl: '', datetime: new Date(2000,0,0,0,0,0,0)},
   ]
 
   public currentUser: number = null;
@@ -137,24 +138,35 @@ export class DatabaseService {
   }
 
   getMessagesByUserIdGrouped(userId: number): Message[][] {
-    let retMessagesArray: Message[][] = new Array(50);
+    // this is terrible
+    let retMessagesArray: Message[][] = [[],[],[],[],[],[],[],[],[],[],[]];
+    //for (let ms of retMessagesArray) {
+    //  console.log("print fifty times pleas")
+    //  ms = new Array(0);
+    //}
     for (let m of this.messages) {
       if (m.userIdFrom == userId || m.userIdTo == userId) {
+        console.log("found a relevent message")
         if (m.userIdFrom != userId) {
+          //retMessagesArray[2].push(m);
           retMessagesArray[m.userIdFrom].push(m);
         } else { // m.userIdTo != userId
+          //retMessagesArray[2].push(m);
           retMessagesArray[m.userIdTo].push(m);
         }
       }
     }
     // remove the nulls
-    retMessagesArray = retMessagesArray.filter(msgs => msgs != null);
+    retMessagesArray = retMessagesArray.filter(msgs => msgs.length > 0);
     return retMessagesArray;
   }
 
   getMessagePreviews(userId: number): Message[] {
     let allMessages: Message[][] = this.getMessagesByUserIdGrouped(userId);
     let previews: Message[] = allMessages.map(msgs => msgs.pop());
+    for (let m of previews) {
+      console.log(m.userIdFrom);
+    }
     return previews;
   }
 

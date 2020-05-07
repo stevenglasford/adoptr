@@ -26,12 +26,12 @@
 
 <h3>{{user.username}} listed dogs</h3>
 
-<div *ngFor="let mine of myDogs">
+<div *ngFor="let mine of myDogs; let i=index">
     <img src="{{mine.photoUrl}}"
         alt="{{mine.name}}"
         style="width:20%">
     <h3>Name:</h3> <p>{{mine.name}}</p>
     <h3>Location:</h3> <p>{{mine.location}}</p>
     <br>
-    <button>Delete this dog.</button>
+    <button (click)="deleteDog(mine.id)">Unlist this dog.</button>
 </div>

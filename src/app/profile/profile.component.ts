@@ -49,4 +49,9 @@ export class ProfileComponent implements OnInit {
     this.isSelected = true;
   }
   
+
+  deleteDog(dogNumber : number) : void{
+    this.db.removeDog(dogNumber);
+    this.ngOnInit();
+  }
 }

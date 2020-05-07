@@ -14,11 +14,13 @@ export class DatabaseService {
   users: User[] = [
     {id: 1, username: 'luke.tollefson', password: 'password', profilePhotoUrl: '', location: 'Fargo'},
     {id: 2, username: 'steven.glasford', password: 'password', profilePhotoUrl: 'https://cdn.britannica.com/55/174255-050-526314B6/brown-Guernsey-cow.jpg', location: 'Fargo'},
+    {id: 3, username: 'matt.greatens', password: 'password', profilePhotoUrl: 'https://scontent-msp1-1.xx.fbcdn.net/v/t1.0-9/1487377_793565193990275_1588845896_n.jpg?_nc_cat=101&_nc_sid=dd9801&_nc_ohc=Dtm48sG6KQAAX_7LC07&_nc_ht=scontent-msp1-1.xx&oh=6dd2cc6ce02c13a03d986d54996ba33d&oe=5ED9CF99', location: 'Brainerd'}
   ]
 
   dogs: Dog[] = [
     {id: 1, name: 'Bambie', userOwnerId: 2, photoUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', location: 'Fargo', description: "Grass Fed ball-loving family driven girl"},
     {id: 2, name: 'Pheobe', userOwnerId: 2, photoUrl: 'https://post.healthline.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg', location: 'Spearfish', description: "She is Steven's dog. He knows more about her than you do"},
+    {id: 3, name: 'Shadow', userOwnerId: 3, photoUrl: 'https://scontent-msp1-1.xx.fbcdn.net/v/t1.0-9/1487377_793565193990275_1588845896_n.jpg?_nc_cat=101&_nc_sid=dd9801&_nc_ohc=Dtm48sG6KQAAX_7LC07&_nc_ht=scontent-msp1-1.xx&oh=6dd2cc6ce02c13a03d986d54996ba33d&oe=5ED9CF99', location: 'Deceased', description: 'This girl was cremated and spread around the family property. You can adopt her so she has a home when you\'re in heaven'}
   ]
 
   views: View[] = [

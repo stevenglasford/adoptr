@@ -17,6 +17,9 @@
 
     <p>Please enter the dog's location</p>
     <input type="text" [(ngModel)]="dogLocation" required>
+
+    <p>Tell us about your pup!</p>
+    <input type="text" [(ngModel)]="dogDescription" required>
     <br>
     <button (click)="addDog()">Add your Dog.</button>
 </div>
@@ -29,4 +32,6 @@
         style="width:20%">
     <h3>Name:</h3> <p>{{mine.name}}</p>
     <h3>Location:</h3> <p>{{mine.location}}</p>
+    <br>
+    <button>Delete this dog.</button>
 </div>

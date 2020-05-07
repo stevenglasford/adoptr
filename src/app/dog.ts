@@ -4,4 +4,5 @@ export interface Dog {
     userOwnerId: number
     photoUrl: string
     location: string
+    description: string
 }

@@ -7,10 +7,26 @@
     <input class="form-control" type="password" [(ngModel)]="PASSWORD" placeholder="password" required>
     <br>
     <button (click)="login()">Log me in!</button>
+    <button (click)="addUser()">Add New User</button>
+</div>
+
+<div *ngIf="selected===-2" style="text-align: center;">
+    <h1 id="firstUser">Welcome first timer, please add a new account</h1>
+    <h2 id="someone_has_that_username" *ngIf="someoneHasThatUsername">Sorry but that Username is already taken, please try again</h2>
+    <input class="form-control" type="text" [(ngModel)]="USERNAME" placeholder="Username" required>
+    <br>
+    <input class="form-control" type="password" [(ngModel)]="PASSWORD" placeholder="Password" required>
+    <br>
+    <input class="form-control" type="text" [(ngModel)]="photograph" placeholder="URL to a photo" required>
+    <br>
+    <input class="form-control" type="text" [(ngModel)]="location" placeholder="Location" required>
+    <br>
+    <button (click)="addNewUser()">Add me as a new user baby!</button>
+    
 </div>
 
 <!--Show if the user hs logged in-->
-<div *ngIf="selected!==-1" style="text-align: center;">
+<div *ngIf="selected > -1" style="text-align: center;">
     <h1 id="titleChevron">Adoptr</h1>
     <button (click)="home()">Home</button>
     <button (click)="messages()">Messages</button>

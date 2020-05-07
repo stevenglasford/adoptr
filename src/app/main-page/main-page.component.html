@@ -1,12 +1,18 @@
-<img src="{{currentDog.photoUrl}}" 
+<div *ngIf="currentDog != null">
+    <img src="{{currentDog.photoUrl}}" 
     alt="Doggy Picture"
     style="width:20%">
 <p>{{currentDog.name}}</p>
 <p>{{currentDog.location}}</p>
-<p>Insert Dog description</p>
+<p>{{currentDog.description}}</p>
 
 <div id="likeHateButtons">
     <button id="likeButton" (click)="loveDog()">I love this dog</button>
     <button id="hateButton" (click)="hateDog()">I hate this dog</button>
 </div>
+</div>
 
+<div *ngIf="currentDog == null">
+    <p>You have viewed every dog on Adoptr!</p>
+    <p>Have a happy lifetime with your new pals!</p>
+</div>

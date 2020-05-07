@@ -1,5 +1,13 @@
-<app-header></app-header>
-why doesn't this work
-<div class="container">
-    <app-message-card *ngFor="let message of messagePreviews" [message]="message"></app-message-card>
+<h2>{{currentUser}}'s Liked Dogs</h2>
+
+<div *ngIf="likedDogs[0] == null">
+    <p>You haven't liked any dogs yet.</p>
+</div>
+
+<div *ngFor="let dog of likedDogs">
+    <img src="{{dog.photoUrl}}" style="width: 30%;" alt="{{dog.name}}">
+    <h4>Name</h4>
+    <p>{{dog.name}}</p>
+    <h4>Location</h4>
+    <p>{{dog.location}}</p>
 </div>

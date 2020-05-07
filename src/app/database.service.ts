@@ -20,7 +20,7 @@ export class DatabaseService {
   dogs: Dog[] = [
     {id: 1, name: 'Bambie', userOwnerId: 2, photoUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', location: 'Fargo', description: "Grass Fed ball-loving family driven girl"},
     {id: 2, name: 'Pheobe', userOwnerId: 2, photoUrl: 'https://post.healthline.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg', location: 'Spearfish', description: "She is Steven's dog. He knows more about her than you do"},
-    {id: 3, name: 'Shadow', userOwnerId: 3, photoUrl: 'https://scontent-msp1-1.xx.fbcdn.net/v/t1.0-9/1487377_793565193990275_1588845896_n.jpg?_nc_cat=101&_nc_sid=dd9801&_nc_ohc=Dtm48sG6KQAAX_7LC07&_nc_ht=scontent-msp1-1.xx&oh=6dd2cc6ce02c13a03d986d54996ba33d&oe=5ED9CF99', location: 'Deceased', description: 'This girl was cremated and spread around the family property. You can adopt her so she has a home when you\'re in heaven'}
+    {id: 3, name: 'Shadow', userOwnerId: 3, photoUrl: 'https://i.pinimg.com/originals/29/0c/19/290c192b887d0419bf8d686290bcb01b.jpg', location: 'Deceased', description: 'This girl was cremated and spread around the family property. You can adopt her so she has a home when you\'re in heaven'}
   ]
 
   views: View[] = [
@@ -72,6 +72,26 @@ export class DatabaseService {
       }
     }
     return myDogs;
+  }
+
+  getMyLikedDogs(userId:number): Dog[]{
+    let likeDog: Dog[] = [];
+    for(let d of this.dogs){
+      if (this.isDogLikedByUser(userId, d.id)) {
+        likeDog.push(d);
+      }
+    }
+    return likeDog;
+  }
+
+  isDogLikedByUser(userId: number, dogId: number): boolean {
+    for (let v of this.views) {
+      if (v.userId == userId && v.dogId == dogId && v.liked) {
+        return true;
+      }
+    }
+    // no liking found
+    return false;
   }
 
   private dogViewed(userId: number, dogId: number): boolean {

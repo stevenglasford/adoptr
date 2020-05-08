@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+p {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#likeButton {
+    background-color: lightskyblue;
+    border: midnightblue;
+}
+
+#likeButton:hover {
+    background-color: darkblue;
+    color: white
+}
+
+#hateButton:hover {
+    background-color: darkred;
+    color: white
+}
+
+#hateButton {
+    background-color: coral;
+    border: red;
+}
+
+#likeHateButtons {
+    background-color: burlywood;
+    font: bold;
+}
+
+:root {
+    background: burlywood;
+}
